@@ -1,0 +1,281 @@
+.login-page {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  
+  &__left-panel {
+    flex: 1;
+    background: linear-gradient(135deg, #00b4e5 0%, #0099c7 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 45px 50px;
+    overflow: hidden;
+    
+    // Background pattern from Figma design
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('/src/assets/background-pattern.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      opacity: 1;
+      z-index: 1;
+    }
+  }
+  
+  &__background-overlay {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  &__logo {
+    align-self: flex-start;
+    margin-bottom: auto;
+    
+    .logo {
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  &__left-content {
+    text-align: center;
+    color: var(--color-white);
+    max-width: 413px;
+    margin: auto 0;
+  }
+  
+  &__title {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-2xl);
+    font-weight: 600;
+    line-height: var(--line-height-xl);
+    margin-bottom: 16px;
+    color: var(--color-white);
+  }
+  
+  &__subtitle {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--color-white);
+    opacity: 0.95;
+  }
+  
+  &__right-panel {
+    flex: 1; // Equal width to left panel (50/50 split)
+    background-color: #fafafa; // bg-neutral-50 from Figma
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 80px; // Adjusted padding for better centering
+  }
+  
+  &__form-container {
+    width: 400px; // Exact width from Figma
+    max-width: none; // Remove max-width constraint
+    background-color: transparent; // No background - transparent as per Figma
+    padding: 0; // No padding since no background
+    border-radius: 0; // No border radius
+    box-shadow: none; // No shadow as per Figma
+  }
+  
+  &__form-header {
+    text-align: left; // Changed to left align to match Figma
+    margin-bottom: 32px; // Adjusted for better spacing
+  }
+  
+  &__form-title {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-xl);
+    font-weight: 400;
+    line-height: var(--line-height-lg);
+    color: var(--color-text-dark);
+    margin-bottom: 8px;
+  }
+  
+  &__form-subtitle {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-sm);
+    font-weight: 400;
+    line-height: var(--line-height-sm);
+    color: var(--color-text-gray);
+    letter-spacing: 0.25px;
+  }
+  
+  &__form {
+    width: 100%;
+  }
+  
+  &__form-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+    margin-bottom: 32px;
+  }
+  
+  &__remember-me {
+    margin-bottom: 0 !important;
+    
+    .form-field__checkbox-label {
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-base);
+      letter-spacing: 0.5px;
+    }
+  }
+  
+  &__forgot-password {
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    font-weight: 400;
+    line-height: var(--line-height-base);
+    letter-spacing: 0.5px;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+    
+    &:hover {
+      color: #0099c7;
+    }
+    
+    &:focus {
+      outline: none;
+      color: #0099c7;
+    }
+  }
+  
+  &__form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 24px; // gap-6 from Figma
+    width: 100%;
+  }
+  
+  &__divider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 16px 0;
+  }
+  
+  &__divider-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: var(--color-border);
+    transform: translateY(-50%);
+  }
+  
+  &__divider-text {
+    background-color: #fafafa; // bg-neutral-50 to match the right panel background
+    padding: 0 16px;
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-border);
+    letter-spacing: 0.1px;
+  }
+}
+
+// Responsive design
+@media (max-width: 1024px) {
+  .login-page {
+    &__left-panel {
+      padding: 32px 24px;
+    }
+    
+    &__right-panel {
+      padding: 40px 32px;
+    }
+    
+    &__form-container {
+      width: 100%;
+      max-width: 400px; // Restore max-width for smaller screens
+      padding: 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .login-page {
+    flex-direction: column;
+    
+    &__left-panel {
+      flex: 0 0 auto;
+      min-height: 300px;
+      padding: 24px;
+    }
+    
+    &__title {
+      font-size: 28px;
+      line-height: 32px;
+    }
+    
+    &__subtitle {
+      font-size: var(--font-size-sm);
+    }
+    
+    &__right-panel {
+      flex: 1;
+      padding: 16px;
+    }
+    
+    &__form-container {
+      max-width: 100%;
+      padding: 24px 16px;
+      box-shadow: none;
+      border-radius: 0;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .login-page {
+    &__left-panel {
+      min-height: 250px;
+      padding: 16px;
+    }
+    
+    &__title {
+      font-size: 24px;
+      line-height: 28px;
+    }
+    
+    &__form-container {
+      padding: 20px 12px;
+    }
+    
+    &__form-options {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    
+    &__forgot-password {
+      align-self: flex-end;
+    }
+  }
+}

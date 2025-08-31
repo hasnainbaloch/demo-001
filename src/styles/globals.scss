@@ -1,0 +1,220 @@
+// Global SCSS variables and styles
+// Design System Variables based on Figma
+// Note: This file loads after antd.css to override Ant Design styles
+
+:root {
+  // Colors
+  --color-primary: #00b4e5;
+  --color-white: #ffffff;
+  --color-text-dark: #2a2d2e;
+  --color-text-gray: #777777;
+  --color-text-light-gray: #bebfc0;
+  --color-border: #cccccc;
+  --color-border-dark: #8c8c8c;
+  --color-background-light: #fafafa;
+  --color-background-neutral: #f5f5f5;
+  --color-text-secondary: #5e5e5e;
+
+  // Typography
+  --font-family-primary: 'Roboto', sans-serif;
+  --font-family-secondary: 'Segoe UI', sans-serif;
+  
+  // Font sizes
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 24px;
+  --font-size-2xl: 36px;
+  
+  // Line heights
+  --line-height-sm: 20px;
+  --line-height-base: 24px;
+  --line-height-lg: 32px;
+  --line-height-xl: 36px;
+  
+  // Spacing
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 40px;
+  
+  // Border radius
+  --border-radius-sm: 4px;
+  --border-radius-md: 5px;
+  --border-radius-lg: 16px;
+}
+
+// Reset and base styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text-dark);
+  background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100%;
+}
+
+// Utility classes
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.d-flex { display: flex; }
+.d-block { display: block; }
+.d-none { display: none; }
+
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-start { justify-content: flex-start; }
+.justify-end { justify-content: flex-end; }
+
+.align-center { align-items: center; }
+.align-start { align-items: flex-start; }
+.align-end { align-items: flex-end; }
+
+.flex-column { flex-direction: column; }
+.flex-row { flex-direction: row; }
+
+.w-100 { width: 100%; }
+.h-100 { height: 100%; }
+
+// Override Ant Design v4 styles with custom theme
+.ant-input {
+  border-radius: var(--border-radius-sm) !important;
+  
+  &:focus, &.ant-input-focused {
+    border-color: var(--color-primary) !important;
+    box-shadow: 0 0 0 2px rgba(0, 180, 229, 0.2) !important;
+  }
+}
+
+.ant-input-password {
+  .ant-input {
+    border-radius: var(--border-radius-sm) !important;
+  }
+}
+
+.ant-btn {
+  border-radius: var(--border-radius-md) !important;
+  
+  &.ant-btn-primary {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    
+    &:hover, &:focus, &:active {
+      background-color: #0099c7 !important;
+      border-color: #0099c7 !important;
+    }
+  }
+  
+  &.ant-btn-default {
+    border-color: var(--color-border-dark) !important;
+    
+    &:hover, &:focus {
+      border-color: var(--color-primary) !important;
+      color: var(--color-primary) !important;
+    }
+  }
+}
+
+.ant-checkbox-wrapper {
+  .ant-checkbox {
+    .ant-checkbox-inner {
+      border-color: var(--color-border) !important;
+      border-radius: 2px !important;
+    }
+    
+    &.ant-checkbox-checked .ant-checkbox-inner {
+      background-color: var(--color-primary) !important;
+      border-color: var(--color-primary) !important;
+    }
+    
+    &:hover .ant-checkbox-inner {
+      border-color: var(--color-primary) !important;
+    }
+  }
+}
+
+.ant-layout {
+  background: var(--color-background-light) !important;
+}
+
+.ant-layout-sider {
+  background: var(--color-white) !important;
+}
+
+.ant-layout-header {
+  background: var(--color-white) !important;
+  padding: 0 !important;
+}
+
+.ant-menu {
+  border-right: none !important;
+  
+  .ant-menu-item {
+    &:hover {
+      color: var(--color-primary) !important;
+    }
+    
+    &.ant-menu-item-selected {
+      background-color: rgba(0, 180, 229, 0.1) !important;
+      color: var(--color-primary) !important;
+      
+      &::after {
+        border-right: 3px solid var(--color-primary) !important;
+      }
+    }
+  }
+}
+
+.ant-dropdown-menu {
+  .ant-dropdown-menu-item {
+    &:hover {
+      background-color: var(--color-background-light) !important;
+    }
+  }
+}
+
+.ant-message {
+  .ant-message-success {
+    .anticon {
+      color: #52c41a !important;
+    }
+  }
+  
+  .ant-message-error {
+    .anticon {
+      color: #ff4d4f !important;
+    }
+  }
+}
+
+// Form styles
+.form-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-gray);
+  margin-bottom: var(--spacing-xs);
+  display: block;
+  font-weight: 400;
+}
+
+.form-error {
+  color: #ff4d4f;
+  font-size: var(--font-size-xs);
+  margin-top: var(--spacing-xs);
+}
